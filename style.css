@@ -1,0 +1,159 @@
+/*
+Theme Name: Mirai
+Theme URI: http://blog.ryanrampersad.com/theme
+Author: Ryan Rampersad
+Author URI: http://ryanrampersad.com/
+Version: 0.1
+
+Inspired by Daring Fireball, Shawn Blanc, Svbtle and others.
+*/
+body {
+  font: 14px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #F7F3EE;
+  color: #020202;
+  margin: 0;
+  padding: 0; }
+
+a {
+  color: #bc0707;
+  border-bottom: 1px solid #acacac;
+  text-decoration: none; }
+
+a:hover {
+  background-color: #e2e2e2;
+  border-bottom: 1px solid #adadad;
+  transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 14px;
+  margin: 0;
+  padding: 0; }
+
+h1, h2 {
+  font-size: 15px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  line-height: 30px;
+  font-weight: normal; }
+
+blockquote {
+  color: #424242;
+  border-left: 4px solid #e0cccc;
+  margin-left: 10px;
+  padding-left: 10px; }
+
+#container {
+  width: 640px;
+  margin: 0 auto;
+  overflow: none; }
+
+#site-header {
+  background-color: #170702;
+  color: #dddddd;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-top: 10px;
+  padding-bottom: 15px; }
+
+#header {
+  width: 640px;
+  margin: auto; }
+
+#site-title, #site-description {
+  font-weight: normal;
+  font-size: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: lowercase; }
+  #site-title a, #site-description a {
+    color: #fff;
+    border: 0; }
+
+#site-title {
+  font-size: 32px;
+  letter-spacing: 1px; }
+
+#content {
+  width: 620px; }
+
+.post {
+  padding: 15px 20px 15px 20px; }
+
+.entry-date {
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  color: #888; }
+
+.format-standard .entry-title a {
+  color: #333; }
+
+.category-featured {
+  padding-top: 35px;
+  padding-bottom: 35px; }
+  .category-featured .entry-title {
+    font-size: 22px; }
+    .category-featured .entry-title a {
+      color: #222;
+      border: 0; }
+    .category-featured .entry-title a:hover {
+      color: #bc0707;
+      transition: color 0.3s;
+      -moz-transition: color 0.3s;
+      -webkit-transition: color 0.3s;
+      -o-transition: color 0.3s; }
+
+.linked-list-item {
+  font-size: 25px;
+  display: inline;
+  float: left;
+  clear: right;
+  margin-left: -27px;
+  margin-top: -27px; }
+
+.format-link .linked-list-item a {
+  color: #aaa;
+  border: 0;
+  background-color: inherit;
+  transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -o-transition: color 0.5s; }
+.format-link .linked-list-item a:hover {
+  color: #000;
+  transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -webkit-transition: color 0.3s;
+  -o-transition: color 0.3s; }
+
+.format-link:hover .linked-list-item a {
+  color: #f00;
+  transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -o-transition: color 0.5s; }
+.format-link:hover .linked-list-item a:hover {
+  color: #000;
+  transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -webkit-transition: color 0.3s;
+  -o-transition: color 0.3s; }
+
+.dateline {
+  margin: 20px 10px 20px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #777;
+  text-align: right; }
+
+/*#primary {
+	width: 300px;
+	margin-right: 20px;
+	float: right;
+}
+
+.nav-menu ul {
+	list-style: none;
+	padding-left: 10px;
+}*/
