@@ -6,6 +6,8 @@
 
 get_header(); ?>
 
+<?php do_atomic('before_content'); ?>
+
 <section id="content" role="main">
 
 
@@ -14,5 +16,6 @@ get_header(); ?>
 
 </section>
 
+<?php do_atomic('after_content'); ?>
 
 <?php get_footer(); ?>

@@ -1,4 +1,8 @@
 
+</div><!-- #container -->
+
+<?php do_atomic('after_container'); ?>
+
 <?php do_atomic('before_footer'); ?>
 
 <footer id="site-footer">
@@ -13,9 +17,6 @@
 
 <?php do_atomic('before_footer'); ?>
 
-</div><!-- #container -->
-
-<?php do_atomic('after_container'); ?>
 <?php wp_footer(); ?>
 
 </body>
