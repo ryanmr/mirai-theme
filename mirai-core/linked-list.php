@@ -143,10 +143,8 @@ class Mirai_LinkedList {
 		?>
 		<script type="text/javascript">
 			jQuery(document).ready(function($){
-				$('#ll_url').blur(function(){
 					$('#post-format-link').attr('checked', true);
 					$('#in-category-<?php echo Mirai_LinkedList::get_links_category(); ?>').attr('checked', true);
-				});
 			});
 		</script>
 		<?php
