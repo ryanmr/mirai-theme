@@ -1,19 +1,9 @@
 /*
 Theme Name: Mirai
-Theme URI: http://blog.ryanrampersad.com/theme
+Theme URI: http://blog.ryanrampersad.com/
 Author: Ryan Rampersad
 Author URI: http://ryanrampersad.com/
-Version: 0.1
-
-Inspired by:
-	Daring Fireball
-	Shawn Blanc
-	The Loop
-	Marco.org
-	The Verge
-	Svbtle
-	And More.
-
+Version: 0.11
 */
 body {
   font: 14px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -152,17 +142,9 @@ ul {
     background-image: -o-linear-gradient(top left, #4b0049, #dc2525);
     background-image: linear-gradient(top left, #4b0049, #dc2525); }
   .saturday #site-header {
-    background-image: -webkit-linear-gradient(top left, #dcab25, #004b1a);
-    background-image: -moz-linear-gradient(top left, #dcab25, #004b1a);
-    background-image: -ms-linear-gradient(top left, #dcab25, #004b1a);
-    background-image: -o-linear-gradient(top left, #dcab25, #004b1a);
-    background-image: linear-gradient(top left, #dcab25, #004b1a); }
+    background-color: #2caee4; }
   .sunday #site-header {
-    background-image: -webkit-linear-gradient(top left, #002f4b, #775211);
-    background-image: -moz-linear-gradient(top left, #002f4b, #775211);
-    background-image: -ms-linear-gradient(top left, #002f4b, #775211);
-    background-image: -o-linear-gradient(top left, #002f4b, #775211);
-    background-image: linear-gradient(top left, #002f4b, #775211); }
+    background-color: #ec3634; }
 
 #header {
   width: 640px;
@@ -198,13 +180,11 @@ ul {
     -o-transition: background-color 0.3s; }
 
 #site-symbol {
-  font-size: 200px;
   position: relative;
-  left: 80%;
-  top: -35px;
-  height: 1px;
-  color: white;
-  text-shadow: 1px 1px 30px #000; }
+  left: 80%; }
+  #site-symbol img {
+    height: 64px;
+    width: 64px; }
 
 /* top menu */
 #menu-primary {

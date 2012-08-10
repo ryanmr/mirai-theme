@@ -72,9 +72,9 @@ function mirai_get_primary_menu() {
 
 function mirai_header_symbol() {
 
-	$symbol = '<div id="site-symbol">&#x2295;</div>';
+	$symbol = '<div id="site-symbol"><img src="'.get_bloginfo('template_directory').'/resources/images/nx-logo-grayscale.png'.'" /></div>';
 
-	echo apply_atomic_shortcode('header_symbol', $symbol);
+	//echo apply_atomic_shortcode('header_symbol', $symbol);
 
 }
 

@@ -100,7 +100,7 @@ class Mirai_LinkedList {
 
 	public static function feed_title_url($content) {
 		if ( 'link' == get_post_format() ) {
-			$url = Mirai_LinkedList_get_ll_url();
+			$url = Mirai_LinkedList::get_linked_list_url();
 			if ( $url != false ) {
 				echo '<![CDATA[' . $url . ']]>';
 				return $url;
@@ -121,7 +121,6 @@ class Mirai_LinkedList {
 	public static function feed_symbol($content) {
 		$symbol = '&#8733;';
 		if ( 'link' == get_post_format() && is_feed() ) {
-			//$content = '<![CDATA[&rarr;  ' . $content . ']]>';
 			$content = '→  ' . $content . '';
 		} 
 		return $content;
