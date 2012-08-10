@@ -8,4 +8,4 @@
 
 	<?php do_atomic('after_entry'); ?>
 
-</article><!-- article.standard -->
+</article><!-- article.post -->

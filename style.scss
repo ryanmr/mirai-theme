@@ -5,15 +5,25 @@ Author: Ryan Rampersad
 Author URI: http://ryanrampersad.com/
 Version: 0.1
 
-Inspired by Daring Fireball, Shawn Blanc, Svbtle and others.
+Inspired by:
+	Daring Fireball
+	Shawn Blanc
+	The Loop
+	Marco.org
+	The Verge
+	Svbtle
+	And More.
+
 */
 
 $links: #BC0707;
-$background: #F7F3EE;
+//$background: #F7F3EE;
+$background: #FFF;
 $border: #E0CCCC;
 $header: #464646;
 $text: #020202; 
 $inverse_text: #ddd; 
+$container_width: 640px;
 
 @mixin transitions($trans, $time) {
 	transition: $trans #{$time}s;
@@ -22,9 +32,18 @@ $inverse_text: #ddd;
 	-o-transition: $trans #{$time}s;
 }
 
+@mixin bg-gradient($begin, $end, $from: top left) {
+	background-image: -webkit-linear-gradient($from, $begin, $end);
+	background-image: -moz-linear-gradient($from, $begin, $end);
+	background-image: -ms-linear-gradient($from, $begin, $end);
+	background-image: -o-linear-gradient($from, $begin, $end);
+	background-image: linear-gradient($from, $begin, $end)
+}
+
 body {
 	font: 14px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
-	background-color: #F7F3EE;
+	//background-color: #F7F3EE;
+	background-color: $background;
 	color: $text;
 	margin: 0; padding: 0;
 }
@@ -58,48 +77,175 @@ blockquote {
 	border-left: 4px solid $border;
 	margin-left: 10px;
 	padding-left: 10px;
+
+	blockquote {
+		border-left: 3px solid $border;
+	}
 }
+
+cite {font-style: normal;}
+
+p {margin-bottom: 20px;}
+
+ul {list-style: square;}
+
+.note {
+	background-color: #eee;
+	border: 1px solid #ccc;
+	padding: 6px 9px;
+	font-size: 13px;
+	color: #444;
+	margin-bottom: 20px;
+	p {
+		margin: 0;
+	}
+}
+
+.warning {
+	@extend .note;
+  background-color: #fffbbc;
+  border: 1px solid #E6DB55;
+}
+
+.error, .alert, .negative {
+	@extend .note;
+  background-color: #F5D1CB;
+  border: 1px solid #C00;
+}
+
+.download, .positive {
+	@extend .note;
+  background-color:#e7f7d3;
+  border:1px solid #6c3;
+}
+
+.inverse {
+	@extend .note;
+	color: #bbb;
+	background-color: #333;
+	border: 1px solid #000;
+	a {
+		color: #4bb;
+	}
+	a:hover {
+		color: #abb;
+		background-color: #222;
+	}
+}
+
+.entry-content span[title] {
+	border-bottom: 1px dotted #fbb;
+}
+
+/* structural styles */
 
 #container {
-	width: 640px;
+	width: $container_width;
 	margin: 0 auto;
-	overflow: none;
+	overflow: hidden;
 }
-
 
 #site-header {
 	background-color: #170702;
 	color: $inverse_text;
-	margin-bottom: 40px;
+	margin-bottom: 10px;
 	border-bottom: 1px solid #eee;
-	padding-top: 10px;
+	padding-top: 90px;
 	padding-bottom: 15px;
+	overflow: hidden;
+
+	box-shadow: inset 0 0 60px 0 rgba(63, 84, 97, 0.9);
+
+	/*.monday & {background: -webkit-linear-gradient(left top,#002F5B,#DC4225);}
+	.tuesday & {background: -webkit-linear-gradient(left top,#D38312,#DC4225);}
+	.wednesday & {background: -webkit-linear-gradient(left top,#002F4B,#417711);}
+	.thursday & {background: -webkit-linear-gradient(left top,#002D4B,#775211);}
+	.friday & {background: -webkit-linear-gradient(left top,#4B0049,#DC2525);}
+
+	.saturday & {background: -webkit-linear-gradient(left top,#DCAB25,#004B1A);}
+	.sunday & {background: -webkit-linear-gradient(left top,#002F4B,#775211);}*/
+
+	.monday & { @include bg-gradient(#002F5B, #DC4225); }
+	.tuesday & { @include bg-gradient(#D38312, #DC4225); }
+	.wednesday & { @include bg-gradient(#002F4B, #417711); }
+	.thursday & { @include bg-gradient(#002D4B, #775211); }
+	.friday & { @include bg-gradient(#4B0049, #DC2525); }
+	
+	.saturday & { @include bg-gradient(#DCAB25, #004B1A); }
+	.sunday & { @include bg-gradient(#002F4B, #775211); }
+
+
 }
+
 #header {
-	width: 640px;
+	width: $container_width;
 	margin: auto;
+	padding-left: 10px;
 }
 
 #site-title, #site-description {
 	a {color: #fff; border: 0;}
+	margin: 0; padding: 0;
 	font-weight: normal;
 	font-size: 15px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-transform: lowercase;
+	line-height: 30px;
 }
 
 #site-title {
 	font-size: 32px;
 	letter-spacing: 1px;
+	a {
+		background-color: transparent;
+		@include transitions(background-color, 0.3);
+	}
+	a:hover {
+		background-color: #f00;
+		@include transitions(background-color, 0.3);
+	}
+}
+
+#site-symbol {
+	font-size: 200px;
+	position: relative;
+	left: 80%;
+	top: -35px;
+	height: 1px;
+	color: $background;
+	text-shadow: 1px 1px 30px #000;
 }
 
 
+/* top menu */
+
+#menu-primary {
+	width: $container_width;
+	margin: 0 auto;
+	padding-left: 10px;
+
+	a {color: #eee; background-color: transparent;}
+	a:hover {color: #fff; background-color: transparent;}
+
+}
+
+.menu-container {
+	ul {padding: 0; margin: 0;}
+	li {
+		display: inline;
+		margin-right: 10px;
+	}
+}
+
+/* content */
+
 #content {
-	width: 620px;
+	width: $container_width;
 }
 
 .post {
-	padding: 15px 20px 15px 20px;
+	padding: 15px 20px 15px 10px;
+	clear: both;
 }
 
 .entry-content {
@@ -109,16 +255,26 @@ blockquote {
 	font-size: 12px;
 	padding: 0; margin: 0;
 	color: #888;
+	abbr {
+		border: 0;
+	}
+	.singular-post & {
+		color: #333;
+	}
 }
 
-.entry-title {
-	//float: left;
-}
+
 .format-standard .entry-title a {color: #333;}
+.format-aside .entry-title a {color: #444; border: 0;}
 .category-featured {
 
-	padding-top: 35px;
-	padding-bottom: 35px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	border-bottom: 1px solid #EBE1D5;
+	.singular-post & {
+		border: 0;
+	}
 
 	.entry-title {
 		font-size: 22px;
@@ -131,15 +287,42 @@ blockquote {
 			@include transitions(color, 0.3);
 		}
 	}
+
+	// adds a nifty hover state
+	&:hover:before {
+		color: #ddd;
+		@include transitions(color, .6);
+	}
+	/* laugh if you must; removes Featured symbol */
+	// removes the symbol if the feature is first listed (works on singular too)
+	&:first-child:before, .dateline:first-child + &:before {
+		content: '';
+		margin: 0;
+		dislay: inline;
+	}
+
+}
+// adds the symbol before featured posts
+// this will only add the symbol before featured posts in the long list
+.home, .blog {
+	.category-featured:before {
+		content: '\223C';
+		font-size: 108px;
+		display: block;
+		clear: both;
+		text-align: center;
+		margin-bottom: 65px;
+		color: #EBE1D5;
+	}
 }
 
 .linked-list-item {
-		font-size: 25px;
+		color: #aaa;
+		font-size: 26px;
 		display: inline;
-		float: left;
-		clear: right;
-		margin-left: -27px;
-		margin-top: -27px;
+		position: relative;
+		left: 5px;
+		top: 3px;
 }
 
 .format-link .linked-list-item {
@@ -173,13 +356,452 @@ blockquote {
 	text-align: right;
 }
 
-/*#primary {
-	width: 300px;
-	margin-right: 20px;
-	float: right;
+.entry-content img {
+	border: 5px solid #eee;
+	box-shadow: 0px 0px 10px #bbb;
 }
 
-.nav-menu ul {
+.entry-meta {
+	@include transitions(color, 0.5);
+	.edit {
+		display: block;
+		text-align: right;
+	}
+	color: #999;
+	a {color: inherit; border: 0;}
+	a:hover {background-color: transparent;}
+	&:hover {
+		color: #555; @include transitions(color, 0.3);
+		a:hover {color: $links;}
+	}
+}
+
+.page-title {
+	font-size: 22px;
+}
+
+/* wordpress images */
+
+.entry-content img {
+	max-width: 97.5%;
+}
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+img.size-full,
+img.size-large {
+	max-width: 97.5%;
+	width: auto; /* Prevent stretching of full-size and large-size images with height and width attributes in IE8 */
+	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+
+.alignnone {
+	margin: 5px 20px 20px 0;
+}
+
+.aligncenter, div.aligncenter {
+	display: block;
+	margin: 5px auto 5px auto;
+}
+
+.alignright {
+	float: right;
+	margin: 5px 0px 20px 20px;
+}
+
+.alignleft {
+	float: left;
+	margin: 5px 20px 20px 0px;
+}
+
+a img.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float:left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin:0;
+    max-width: 98.5%;
+    padding:0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size:11px;
+    line-height:17px;
+    margin:0;
+    padding:0 4px 5px;
+}
+
+/* navigation links */
+.navigation-links {
+  font-size: 12px;
+  margin-top: 21px;
+  margin-bottom: 21px;
+  clear: both;
+  overflow: hidden;
+}
+.navigation-links .previous {
+  float: left;
+  max-width: 50%;
+}
+.navigation-links .next {
+  float: right;
+  max-width: 50%;
+  text-align: right;
+}
+.previous, .next {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  .symbol {
+  	font-size: 14px;
+  	padding-left: 5px;
+  	padding-right: 5px;
+  }
+}
+
+/* comments */
+#comments-template {
+	clear: both;
+	width: 90%;
+	margin: auto;
+
+	color: #555;
+	font-size: 13px;
+}
+
+.comment-list {
 	list-style: none;
 	padding-left: 10px;
-}*/
+	ol {
+		list-style: inherit;
+	}
+	li {
+		border-left: 3px solid #e0e0e0;
+		padding-left: 10px;
+	}
+	.bypostauthor, .entry-author {
+		border-left: 4px solid #CCD5E0;
+	}
+}
+
+.comment-text {
+	blockquote {
+		color: #555;
+	}
+	a {
+		color: #69062E;
+	}
+}
+
+.comment-meta {
+	font-size: 12px;
+	text-align: right;
+	a {color: #888;}
+	a:hover {color: #555;}
+
+	.published {
+		color: #aaa; @include transitions(color, 0.3);
+		&:hover {color: #666; @include transitions(color, 0.3);}
+	}
+	abbr[title] {border: 0;}
+
+}
+
+#respond {
+	padding: 10px;
+}
+
+/* footer */
+
+#site-footer {
+	clear: both;
+}
+
+#footer {
+	width: $container_width;
+	font-size: 12px;
+	margin: 30px auto 20px auto;
+	padding: 70px 0 10px 0;
+	color: #999;
+
+	a {
+		color: #888;
+	}
+
+	p {
+		margin: 0; padding: 0;
+	}
+
+}
+
+/* plugins */
+.syntaxhighlighter {
+	padding: 12px 0 12px 0;
+}
+
+/* forms */
+form {
+  margin: 0 0 18px;
+}
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 27px;
+  font-size: 19.5px;
+  line-height: 36px;
+  color: #333333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+legend small {
+  font-size: 13.5px;
+  color: #999999;
+}
+label,
+input,
+button,
+select,
+textarea {
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+}
+input,
+button,
+select,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  display: inline-block;
+  height: 18px;
+  padding: 4px;
+  margin-bottom: 9px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #555555;
+}
+input,
+textarea {
+  width: 90%;
+  margin: auto;
+}
+textarea {
+  height: auto;
+}
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+}
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 3px 0;
+  *margin-top: 0;
+  /* IE7 */
+
+  line-height: normal;
+  cursor: pointer;
+}
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+}
+.uneditable-textarea {
+  width: auto;
+  height: auto;
+}
+select,
+input[type="file"] {
+  height: 28px;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+
+  line-height: 28px;
+}
+select {
+  width: 220px;
+  border: 1px solid #bbb;
+}
+select[multiple],
+select[size] {
+  height: auto;
+}
+select:focus,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/*
+========================================
+	============ Responsive ============
+========================================
+*/
+
+
+
+
+@media (max-width: 767px) {
+	#container, #menu-primary, #header, #content {
+		width: 640px;
+		@include transitions(width, 0.5);
+	}
+	#comments-template {
+		display: none;
+	}
+}
+
+
+@media (max-width: 480px) {
+	#container, #menu-primary, #header, #content {
+		width: 400px;
+		min-width: 400px;
+		@include transitions(width, 0.5);
+	}
+	#comments-template {
+		display: none;
+	}
+}
+
+@media (min-width: 840px)  {
+	#container, #menu-primary, #header, #content {
+		width: 700px;
+		@include transitions(width, 0.5);
+	}	
+}
+
+
+
+
+
+
+
+
+
+
