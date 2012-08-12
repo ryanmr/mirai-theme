@@ -102,11 +102,11 @@ class Mirai_LinkedList {
 		if ( 'link' == get_post_format() ) {
 			$url = Mirai_LinkedList::get_linked_list_url();
 			if ( $url != false ) {
-				echo '<![CDATA[' . $url . ']]>';
+				//echo '<![CDATA[' . $url . ']]>';
 				return $url;
 			}
 		}
-		echo $content;
+		//echo $content;
 		return $content;
 	}
 
