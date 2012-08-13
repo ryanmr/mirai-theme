@@ -1,5 +1,5 @@
 3.1.18 (Brainy Betty)
-f0e09100d4d92a886f27674557160d28ad68214b
+724fb88418c81835b2e271bf67300ff2080b714b
 o:Sass::Tree::RootNode
 :
 @linei:@has_childrenT:@template"N8/*
@@ -7,7 +7,7 @@ Theme Name: Mirai
 Theme URI: http://blog.ryanrampersad.com/
 Author: Ryan Rampersad
 Author URI: http://ryanrampersad.com/
-Version: 0.11
+Version: 0.12
 */
 
 $links: #BC0707;
@@ -810,7 +810,7 @@ Theme Name: Mirai
 Theme URI: http://blog.ryanrampersad.com/
 Author: Ryan Rampersad
 Author URI: http://ryanrampersad.com/
-Version: 0.11
+Version: 0.12
 */o:Sass::Tree::VariableNode;i:
 @name"
 links:@guarded0;	@;
