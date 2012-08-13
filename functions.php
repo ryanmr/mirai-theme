@@ -37,7 +37,6 @@ function mirai_setup_theme() {
 
 	add_action( "{$prefix}_header", 'hybrid_site_title' );
 	add_action( "{$prefix}_header", 'hybrid_site_description' );
-	add_action( "{$prefix}_inside_header", 'mirai_header_symbol');
 
 	add_action( "{$prefix}_before_entry", 'mirai_entry_title');
 	add_action( "{$prefix}_before_entry", 'mirai_entry_date');
@@ -83,13 +82,6 @@ function mirai_get_primary_menu() {
 	get_template_part( 'menu', 'primary' );
 }
 
-function mirai_header_symbol() {
-
-	$symbol = '<div id="site-symbol"><img src="'.get_bloginfo('template_directory').'/resources/images/nx-logo-grayscale.png'.'" /></div>';
-
-	//echo apply_atomic_shortcode('header_symbol', $symbol);
-
-}
 
 function mirai_entry_title() {
 	$tag = is_singular() ? 'h1' : 'h2';
