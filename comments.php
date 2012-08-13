@@ -28,4 +28,4 @@
 
 </div><!-- #comments-template -->
 
-<?php do_atomic('before_comments'); ?>
+<?php do_atomic('after_comments'); ?>

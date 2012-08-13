@@ -52,6 +52,9 @@ function mirai_setup_theme() {
 
 	add_action( "{$prefix}_footer", 'mirai_footer' );
 
+	
+	add_action( "comment_form", 'mirai_commentform' );
+
 }
 
 function mirai_viewport() {
@@ -190,6 +193,14 @@ function mirai_footer() {
 	if ( !empty( $footer_insert ) )
 		echo '<div class="footer-insert">' . do_shortcode( $footer_insert ) . '</div>';
 
+}
+
+function mirai_commentform() {
+	function mirai_commentform_hide() {
+		include(get_template_directory() . '/mirai-core/embed/comment-hide.php');
+	}
+	$number = get_comments_number();
+	if ( 0 == $number ) add_action('wp_footer', 'mirai_commentform_hide');
 }
 
 ?>
