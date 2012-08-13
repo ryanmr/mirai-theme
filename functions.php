@@ -53,9 +53,10 @@ function mirai_setup_theme() {
 }
 
 function add_general_actions() {
-	add_action( "comment_form", 'mirai_commentform' );
+	add_action('comment_form', 'mirai_commentform' );
 	add_action('wp_before_admin_bar_render', 'mirai_admin_bar');
 	add_action('wp_head', 'mirai_viewport');
+	add_action('init', 'mirai_header');
 
 	if ( is_admin() ) {
 		add_action('admin_menu', 'mirai_admin_menu');
@@ -64,6 +65,11 @@ function add_general_actions() {
 
 function mirai_viewport() {
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
+}
+
+function mirai_header() {
+	remove_action('wp_head', 'wlwmanifest_link');
+	remove_action('wp_head', 'rsd_link');
 }
 
 function mirai_admin_menu() {
@@ -150,7 +156,7 @@ function mirai_entry_meta() {
 
 	if ( !is_single() ) $tag_part = '';
 
-	$contents = $tag_part . '<!-- sep -->' . $edit_part;
+	$contents = $tag_part . ' ' . $edit_part;
 
 	$meta = '<aside class="entry-meta">'.$contents.'</aside>';
 
