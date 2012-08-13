@@ -2,15 +2,18 @@
 
 require( trailingslashit(TEMPLATEPATH) . "hybrid-core/hybrid.php" );
 new Hybrid();
+
 require( trailingslashit(TEMPLATEPATH) . "mirai-core/linked-list.php" );
+require( trailingslashit(TEMPLATEPATH) . "mirai-core/feeds.php" );
 
 add_action( 'after_setup_theme', 'mirai_setup_theme' );
 
 function mirai_setup_theme() {
 
-	$prefix = hybrid_get_prefix();
+	Mirai_LinkedList::initialize();
+	Mirai_Feeds::initialize();
 
-	debug_backtrace();
+	$prefix = hybrid_get_prefix();
 
 	add_theme_support( 'hybrid-core-menus', array( 'primary') );
 	add_theme_support( 'hybrid-core-sidebars', array( 'primary', 'subsidiary' ) );
@@ -69,9 +72,9 @@ function mirai_get_primary_menu() {
 
 function mirai_header_symbol() {
 
-	$symbol = '<div id="site-symbol">&#x2295;</div>';
+	$symbol = '<div id="site-symbol"><img src="'.get_bloginfo('template_directory').'/resources/images/nx-logo-grayscale.png'.'" /></div>';
 
-	echo apply_atomic_shortcode('header_symbol', $symbol);
+	//echo apply_atomic_shortcode('header_symbol', $symbol);
 
 }
 
@@ -90,8 +93,9 @@ function mirai_entry_title() {
 function mirai_get_entry_title_permalink() {
 	$permalink = get_permalink();
 
-	if ( function_exists('mirai_get_ll_url') && 'link' == get_post_format() ) {
-		$url = mirai_get_ll_url();
+	if ( class_exists('Mirai_LinkedList') && 'link' == get_post_format() ) {
+		$url = Mirai_LinkedList::get_linked_list_url();
+
 		if ( false != $url ) {
 			$permalink = $url;
 		}

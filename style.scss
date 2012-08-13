@@ -1,19 +1,9 @@
 /*
 Theme Name: Mirai
-Theme URI: http://blog.ryanrampersad.com/theme
+Theme URI: http://blog.ryanrampersad.com/
 Author: Ryan Rampersad
 Author URI: http://ryanrampersad.com/
-Version: 0.1
-
-Inspired by:
-	Daring Fireball
-	Shawn Blanc
-	The Loop
-	Marco.org
-	The Verge
-	Svbtle
-	And More.
-
+Version: 0.11
 */
 
 $links: #BC0707;
@@ -171,8 +161,8 @@ ul {list-style: square;}
 	.thursday & { @include bg-gradient(#002D4B, #775211); }
 	.friday & { @include bg-gradient(#4B0049, #DC2525); }
 	
-	.saturday & { @include bg-gradient(#DCAB25, #004B1A); }
-	.sunday & { @include bg-gradient(#002F4B, #775211); }
+	.saturday & {background-color: #2caee4;}
+	.sunday & {background-color: #ec3634;}
 
 
 }
@@ -207,13 +197,14 @@ ul {list-style: square;}
 }
 
 #site-symbol {
-	font-size: 200px;
 	position: relative;
 	left: 80%;
-	top: -35px;
-	height: 1px;
-	color: $background;
-	text-shadow: 1px 1px 30px #000;
+
+	img {
+		height: 64px;
+		width: 64px;
+	}
+
 }
 
 
