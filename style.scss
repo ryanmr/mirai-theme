@@ -494,11 +494,14 @@ a img.aligncenter {
 /* comments */
 #comments-template {
 	clear: both;
-	width: 90%;
-	margin: auto;
-
 	color: #555;
 	font-size: 13px;
+}
+
+#reply-title span {
+	font-size: 14px;
+	font-weight: normal;
+	color: #777;
 }
 
 .comment-list {
@@ -571,7 +574,7 @@ a img.aligncenter {
 	padding: 12px 0 12px 0;
 }
 
-/* forms */
+/* forms -- on load from the Twitter/Bootstrap library */
 form {
   margin: 0 0 18px;
 }

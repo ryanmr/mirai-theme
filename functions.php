@@ -52,6 +52,9 @@ function mirai_setup_theme() {
 
 	add_action( "{$prefix}_footer", 'mirai_footer' );
 
+
+	add_action( "comment_form", 'mirai_commentform' );
+
 }
 
 function mirai_viewport() {
@@ -180,7 +183,7 @@ function mirai_comment_header() {
 }
 
 function mirai_comment_meta() {
-	echo apply_atomic_shortcode('comment_meta', '<div class="comment-meta"> [comment-published] [comment-edit-link before=" | "] [comment-permalink before="| "] [comment-reply-link after="| "] </div>');
+	echo apply_atomic_shortcode('comment_meta', '<div class="comment-meta"> [comment-published] [comment-edit-link before=" | "] [comment-permalink before="| "] [comment-reply-link before="| "] </div>');
 }
 
 function mirai_footer() {
@@ -190,6 +193,14 @@ function mirai_footer() {
 	if ( !empty( $footer_insert ) )
 		echo '<div class="footer-insert">' . do_shortcode( $footer_insert ) . '</div>';
 
+}
+
+function mirai_commentform() {
+	function _mirai_commentform_hide() {
+		include(get_template_directory() . '/mirai-core/embed/comment-hide.js.php');
+	}
+	$number = get_comments_number();
+	if ( 0 == $number ) add_action('wp_footer', '_mirai_commentform_hide');
 }
 
 ?>
