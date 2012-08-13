@@ -21,7 +21,6 @@ function mirai_setup_theme() {
 	add_theme_support( 'hybrid-core-shortcodes' );
 	add_theme_support( 'hybrid-core-theme-settings', array( 'about', 'footer' ) );
 	add_theme_support( 'hybrid-core-drop-downs' );
-	add_theme_support( 'hybrid-core-seo' );
 	add_theme_support( 'hybrid-core-template-hierarchy' );
 	add_theme_support( 'get-the-image' );
 	add_theme_support( 'automatic-feed-links' );
@@ -56,7 +55,7 @@ function add_general_actions() {
 	add_action('comment_form', 'mirai_commentform' );
 	add_action('wp_before_admin_bar_render', 'mirai_admin_bar');
 	add_action('wp_head', 'mirai_viewport');
-	add_action('init', 'mirai_header');
+	add_action('init', 'mirai_remove_header_meta');
 
 	if ( is_admin() ) {
 		add_action('admin_menu', 'mirai_admin_menu');
@@ -67,9 +66,11 @@ function mirai_viewport() {
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
 }
 
-function mirai_header() {
+function mirai_remove_header_meta() {
 	remove_action('wp_head', 'wlwmanifest_link');
 	remove_action('wp_head', 'rsd_link');
+	remove_action('wp_head', 'wp_generator');
+
 }
 
 function mirai_admin_menu() {
