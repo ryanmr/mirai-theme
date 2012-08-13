@@ -132,11 +132,6 @@ function mirai_get_entry_symbol() {
 
 	$symbol = '<span class="linked-list-item"><a class="linked-list-symbol" href="'.get_permalink().'" rel="bookmark" title="'.the_title_attribute(array('before' => 'Permalink to: ', 'echo'=>0)).'">&#8733;</a></span>';
 
-	// &#8766;
-	// that is the broken infinity symbol / inverted lazy S
-	// &#8733;
-	// that is the proportional symbol
-
 	return $symbol;
 }
 
@@ -179,8 +174,6 @@ function mirai_get_navigation() {
 }
 
 function mirai_comment_header() {
-	//echo apply_atomic_shortcode('comment_meta', '<div class="comment-meta comment-meta-data">[comment-author]: [comment-permalink before="| "] [comment-edit-link before="| "] [comment-reply-link before="| "]</div>');
-
 	echo apply_atomic_shortcode('comment_header', '<div class="comment-header comment-header-data">[comment-author]: </div>');
 }
 
