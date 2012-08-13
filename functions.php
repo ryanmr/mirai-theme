@@ -21,7 +21,6 @@ function mirai_setup_theme() {
 	add_theme_support( 'hybrid-core-shortcodes' );
 	add_theme_support( 'hybrid-core-theme-settings', array( 'about', 'footer' ) );
 	add_theme_support( 'hybrid-core-drop-downs' );
-	add_theme_support( 'hybrid-core-seo' );
 	add_theme_support( 'hybrid-core-template-hierarchy' );
 	add_theme_support( 'get-the-image' );
 	add_theme_support( 'automatic-feed-links' );
@@ -30,9 +29,6 @@ function mirai_setup_theme() {
 
 	hybrid_set_content_width( 600 );
 
-	add_action('wp_before_admin_bar_render', 'mirai_admin_bar');
-	add_action('wp_head', 'mirai_viewport');
-
 	add_action( "{$prefix}_inside_header", 'mirai_get_primary_menu');
 
 	add_action( "{$prefix}_after_content", 'mirai_get_navigation');
@@ -40,7 +36,6 @@ function mirai_setup_theme() {
 
 	add_action( "{$prefix}_header", 'hybrid_site_title' );
 	add_action( "{$prefix}_header", 'hybrid_site_description' );
-	add_action( "{$prefix}_inside_header", 'mirai_header_symbol');
 
 	add_action( "{$prefix}_before_entry", 'mirai_entry_title');
 	add_action( "{$prefix}_before_entry", 'mirai_entry_date');
@@ -52,13 +47,34 @@ function mirai_setup_theme() {
 
 	add_action( "{$prefix}_footer", 'mirai_footer' );
 
+	add_general_actions();
 
-	add_action( "comment_form", 'mirai_commentform' );
+}
 
+function add_general_actions() {
+	add_action('comment_form', 'mirai_commentform' );
+	add_action('wp_before_admin_bar_render', 'mirai_admin_bar');
+	add_action('wp_head', 'mirai_viewport');
+	add_action('init', 'mirai_remove_header_meta');
+
+	if ( is_admin() ) {
+		add_action('admin_menu', 'mirai_admin_menu');
+	}
 }
 
 function mirai_viewport() {
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
+}
+
+function mirai_remove_header_meta() {
+	remove_action('wp_head', 'wlwmanifest_link');
+	remove_action('wp_head', 'rsd_link');
+	remove_action('wp_head', 'wp_generator');
+
+}
+
+function mirai_admin_menu() {
+	remove_menu_page('link-manager.php');
 }
 
 function mirai_admin_bar() {
@@ -73,13 +89,6 @@ function mirai_get_primary_menu() {
 	get_template_part( 'menu', 'primary' );
 }
 
-function mirai_header_symbol() {
-
-	$symbol = '<div id="site-symbol"><img src="'.get_bloginfo('template_directory').'/resources/images/nx-logo-grayscale.png'.'" /></div>';
-
-	//echo apply_atomic_shortcode('header_symbol', $symbol);
-
-}
 
 function mirai_entry_title() {
 	$tag = is_singular() ? 'h1' : 'h2';
@@ -130,11 +139,6 @@ function mirai_get_entry_symbol() {
 
 	$symbol = '<span class="linked-list-item"><a class="linked-list-symbol" href="'.get_permalink().'" rel="bookmark" title="'.the_title_attribute(array('before' => 'Permalink to: ', 'echo'=>0)).'">&#8733;</a></span>';
 
-	// &#8766;
-	// that is the broken infinity symbol / inverted lazy S
-	// &#8733;
-	// that is the proportional symbol
-
 	return $symbol;
 }
 
@@ -153,7 +157,7 @@ function mirai_entry_meta() {
 
 	if ( !is_single() ) $tag_part = '';
 
-	$contents = $tag_part . '<!-- sep -->' . $edit_part;
+	$contents = $tag_part . ' ' . $edit_part;
 
 	$meta = '<aside class="entry-meta">'.$contents.'</aside>';
 
@@ -177,8 +181,6 @@ function mirai_get_navigation() {
 }
 
 function mirai_comment_header() {
-	//echo apply_atomic_shortcode('comment_meta', '<div class="comment-meta comment-meta-data">[comment-author]: [comment-permalink before="| "] [comment-edit-link before="| "] [comment-reply-link before="| "]</div>');
-
 	echo apply_atomic_shortcode('comment_header', '<div class="comment-header comment-header-data">[comment-author]: </div>');
 }
 
