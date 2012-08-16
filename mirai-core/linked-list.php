@@ -152,7 +152,7 @@ class Mirai_LinkedList {
 					input.val('link');
 					button.trigger('click');
 				};
-				$(fn).delay(1000);
+				$(fn).delay(50);
 			});
 		</script>
 		<?php
