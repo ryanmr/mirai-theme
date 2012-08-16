@@ -48,6 +48,7 @@ function mirai_setup_theme() {
 	add_action( "{$prefix}_footer", 'mirai_footer' );
 
 	add_general_actions();
+	add_general_filters();
 
 }
 
@@ -62,8 +63,25 @@ function add_general_actions() {
 	}
 }
 
+function add_general_filters() {
+	add_filter('body_class', 'mirai_body_class');
+}
+
 function mirai_viewport() {
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
+}
+
+function mirai_body_class($classes) {
+
+	$day = intval(date('j'));
+	if ( ($day % 2) == 0 ) {
+		$classes[] = 'even-day';
+	} else {
+		$classes[] = 'odd-day';
+	}
+
+	return $classes;
+
 }
 
 function mirai_remove_header_meta() {

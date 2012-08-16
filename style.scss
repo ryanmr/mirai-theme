@@ -148,15 +148,6 @@ ul {list-style: square;}
 
 	box-shadow: inset 0 0 60px 0 rgba(63, 84, 97, .9);
 
-	/*.monday & {background: -webkit-linear-gradient(left top,#002F5B,#DC4225);}
-	.tuesday & {background: -webkit-linear-gradient(left top,#D38312,#DC4225);}
-	.wednesday & {background: -webkit-linear-gradient(left top,#002F4B,#417711);}
-	.thursday & {background: -webkit-linear-gradient(left top,#002D4B,#775211);}
-	.friday & {background: -webkit-linear-gradient(left top,#4B0049,#DC2525);}
-
-	.saturday & {background: -webkit-linear-gradient(left top,#DCAB25,#004B1A);}
-	.sunday & {background: -webkit-linear-gradient(left top,#002F4B,#775211);}*/
-
 	.monday & { @include bg-gradient(#002F5B, #DC4225); }
 	.tuesday & { @include bg-gradient(#D38312, #DC4225); }
 	.wednesday & { @include bg-gradient(#002F4B, #417711); }

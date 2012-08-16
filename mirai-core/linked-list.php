@@ -31,7 +31,10 @@ class Mirai_LinkedList {
 	}
 
 	public static function new_link() {
-		if ( Mirai_LinkedList::admin_is_link_format() ) add_action('admin_footer', 'Mirai_LinkedList::script_preselect');
+		if ( Mirai_LinkedList::admin_is_link_format() ) {
+			add_action('admin_footer', 'Mirai_LinkedList::script_preselect');
+			add_action('admin_footer', 'Mirai_LinkedList::script_pretag');
+		} 
 	}
 
 	public static function admin_is_link_format() {
@@ -140,6 +143,22 @@ class Mirai_LinkedList {
 	}
 
 	public static function script_preselect() {
+		?>
+		<script type="text/javascript">
+			jQuery(document).ready(function($){
+				var fn = function() {
+					var input = $('#new-tag-post_tag');
+					var button = input.next('input');
+					input.val('link');
+					button.trigger('click');
+				};
+				$(fn).delay(50);
+			});
+		</script>
+		<?php
+	}
+
+	public static function script_pretag() {
 		?>
 		<script type="text/javascript">
 			jQuery(document).ready(function($){
