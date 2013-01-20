@@ -1,0 +1,68 @@
+/*
+	Dark theme.
+*/
+
+$dark_background: #111011;
+$dark_body_text: #bebebe;
+$dark_border: #666;
+
+body {
+	background-color: $dark_background;
+	color: $dark_body_text;
+}
+
+a {
+	border-color: #444;
+}
+
+.menu-container a {
+	border-color: #acacac;
+}
+
+blockquote {
+	border-color: $dark_border;
+	color: darken(#bebebe, 20%);
+	blockquote {
+		border-color: inherit;
+		color: darken(#bebebe, 30%);
+	}
+}
+
+#site-header {
+	border-bottom: 1px solid #000;
+}
+
+.dateline {
+	color: #888;
+}
+
+.category-featured {
+	border-color: #666;
+}
+
+.singular-post .entry-date {
+	color: darken(#bebebe, 20%);
+}
+
+.format-standard .entry-title a {color: #999;}
+
+// Permalink coloring
+.linked-list-item {
+		color: #aaa;
+}
+.format-link .linked-list-item {
+	a {
+		color: darker(#bebebe, .9);
+	}
+	a:hover {
+		color: #fff;
+	}
+}
+.format-link:hover .linked-list-item {
+	a {
+		color: #f00;
+	}
+	a:hover {
+		color: #fff;
+	}
+}

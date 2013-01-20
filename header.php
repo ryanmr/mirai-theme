@@ -6,9 +6,6 @@
 
 <title><?php hybrid_document_title(); ?></title>
 
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' );?>/resources/css/normalize.css" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" media="all" />
-
 <?php wp_head(); ?>
 
 </head>
