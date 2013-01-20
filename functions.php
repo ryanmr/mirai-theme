@@ -50,6 +50,15 @@ function mirai_setup_theme() {
 	add_general_actions();
 	add_general_filters();
 
+	add_action('wp_enqueue_scripts', 'mirai_add_styles');
+
+}
+
+function mirai_add_styles() {
+	wp_register_style( 'main', get_template_directory_uri() . '/style.css');
+	wp_register_style( 'dark', get_template_directory_uri() . '/dark.css');
+	wp_enqueue_style( 'main' ); 
+	wp_enqueue_style( 'dark' ); 
 }
 
 function add_general_actions() {

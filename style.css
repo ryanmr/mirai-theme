@@ -3,7 +3,7 @@ Theme Name: Mirai
 Theme URI: http://blog.ryanrampersad.com/
 Author: Ryan Rampersad
 Author URI: http://ryanrampersad.com/
-Version: .125
+Version: .200
 */
 body {
   font: 14px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -55,7 +55,7 @@ ul {
 
 .note, .warning, .error, .alert, .negative, .download, .positive, .inverse {
   background-color: #eee;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   padding: 6px 9px;
   font-size: 13px;
   color: #444;
@@ -65,20 +65,20 @@ ul {
 
 .warning {
   background-color: #fffbbc;
-  border: 1px solid #E6DB55; }
+  border: 1px solid #e6db55; }
 
 .error, .alert, .negative {
   background-color: #F5D1CB;
-  border: 1px solid #C00; }
+  border: 1px solid #cc0000; }
 
 .download, .positive {
   background-color: #e7f7d3;
-  border: 1px solid #6c3; }
+  border: 1px solid #66cc33; }
 
 .inverse {
   color: #bbb;
   background-color: #333;
-  border: 1px solid #000; }
+  border: 1px solid black; }
   .inverse a {
     color: #4bb; }
   .inverse a:hover {
@@ -86,7 +86,7 @@ ul {
     background-color: #222; }
 
 .entry-content span[title] {
-  border-bottom: 1px dotted #fbb; }
+  border-bottom: 1px dotted #ffbbbb; }
 
 /* structural styles */
 #container {
@@ -98,7 +98,7 @@ ul {
   background-color: #170702;
   color: #dddddd;
   margin-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee;
   padding-top: 90px;
   padding-bottom: 15px;
   overflow: hidden;
@@ -225,7 +225,7 @@ ul {
 .category-featured {
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #EBE1D5;
+  border-bottom: 1px solid #ebe1d5;
   /* laugh if you must; removes Featured symbol */ }
   .singular-post .category-featured {
     border: 0; }
@@ -304,8 +304,8 @@ ul {
   text-align: right; }
 
 .entry-content img {
-  border: 5px solid #eee;
-  box-shadow: 0px 0px 10px #bbb; }
+  border: 5px solid #eeeeee;
+  box-shadow: 0px 0px 10px #bbbbbb; }
 
 .entry-meta {
   transition: color 0.5s;
@@ -459,7 +459,7 @@ a img.aligncenter {
     border-left: 3px solid #e0e0e0;
     padding-left: 10px; }
   .comment-list .bypostauthor, .comment-list .entry-author {
-    border-left: 4px solid #CCD5E0; }
+    border-left: 4px solid #ccd5e0; }
 
 .comment-text blockquote {
   color: #555; }
@@ -611,11 +611,11 @@ input[type="color"],
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border linear .2s, box-shadow linear .2s;
-  -moz-transition: border linear .2s, box-shadow linear .2s;
-  -ms-transition: border linear .2s, box-shadow linear .2s;
-  -o-transition: border linear .2s, box-shadow linear .2s;
-  transition: border linear .2s, box-shadow linear .2s; }
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s; }
 
 textarea:focus,
 input[type="text"]:focus,
@@ -670,7 +670,7 @@ input[type="file"] {
 
 select {
   width: 220px;
-  border: 1px solid #bbb; }
+  border: 1px solid #bbbbbb; }
 
 select[multiple],
 select[size] {
@@ -680,7 +680,7 @@ select:focus,
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted #333;
+  outline: thin dotted #333333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
