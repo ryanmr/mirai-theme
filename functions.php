@@ -50,15 +50,6 @@ function mirai_setup_theme() {
 	add_general_actions();
 	add_general_filters();
 
-	add_action('wp_enqueue_scripts', 'mirai_add_styles');
-
-}
-
-function mirai_add_styles() {
-	wp_register_style( 'main', get_template_directory_uri() . '/style.css');
-	wp_register_style( 'dark', get_template_directory_uri() . '/dark.css');
-	wp_enqueue_style( 'main' ); 
-	wp_enqueue_style( 'dark' ); 
 }
 
 function add_general_actions() {
@@ -66,6 +57,8 @@ function add_general_actions() {
 	add_action('wp_before_admin_bar_render', 'mirai_admin_bar');
 	add_action('wp_head', 'mirai_viewport');
 	add_action('init', 'mirai_remove_header_meta');
+
+	add_action('wp_enqueue_scripts', 'mirai_add_styles');
 
 	if ( is_admin() ) {
 		add_action('admin_menu', 'mirai_admin_menu');
@@ -76,9 +69,19 @@ function add_general_filters() {
 	add_filter('body_class', 'mirai_body_class');
 }
 
+function mirai_add_styles() {
+	wp_register_style( 'normalize', get_template_directory_uri() . '/resources/css/normalize.css');
+	wp_register_style( 'main', get_template_directory_uri() . '/style.css');
+	wp_register_style( 'dark', get_template_directory_uri() . '/dark.css');
+	wp_enqueue_style( 'normalize' ); 
+	wp_enqueue_style( 'main' ); 
+	wp_enqueue_style( 'dark' ); 
+}
+
 function mirai_viewport() {
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
 }
+
 
 function mirai_body_class($classes) {
 
