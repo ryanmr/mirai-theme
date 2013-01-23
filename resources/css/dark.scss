@@ -1,6 +1,4 @@
-/*
-	Dark theme.
-*/
+/* --- Dark Theme --- */
 
 $dark_background: #111011;
 $dark_body_text: #bebebe;
@@ -12,8 +10,6 @@ $dark_border: #666;
 	-webkit-transition: $trans #{$time}s;
 	-o-transition: $trans #{$time}s;
 }
-
-// ======= ======= ======= ======= =======
 
 body {
 	background-color: $dark_background;
@@ -85,6 +81,14 @@ blockquote {
 // Decoration color
 .home, .blog {
 	.category-featured:before {
-		color: darker($dark_body_text, .8);
+		color: darken($dark_body_text, 50%);
 	}
+}
+
+// Comments
+#comments-template {
+	color: darken($dark_body_text, 10%);
+}
+.comment-list li {
+	border-color: $dark_border;
 }
