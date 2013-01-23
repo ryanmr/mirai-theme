@@ -1,22 +1,28 @@
-/*
-	Dark theme.
-*/
+/* --- Dark Theme --- */
 body {
   background-color: #111011;
   color: #bebebe; }
 
 a {
-  border-color: #444; }
+  border-color: #333; }
+
+a:hover {
+  background-color: #000;
+  border-bottom: 1px solid #555555;
+  transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s; }
 
 .menu-container a {
   border-color: #acacac; }
 
 blockquote {
   border-color: #666666;
-  color: #8b8b8b; }
+  color: #989898; }
   blockquote blockquote {
     border-color: inherit;
-    color: #727272; }
+    color: #7e7e7e; }
 
 #site-header {
   border-bottom: 1px solid black; }
@@ -34,7 +40,7 @@ blockquote {
   color: #999; }
 
 .linked-list-item {
-  color: #aaa; }
+  color: #666; }
 
 .format-link .linked-list-item a {
   color: darker(#bebebe, 0.9); }
@@ -45,3 +51,6 @@ blockquote {
   color: #f00; }
 .format-link:hover .linked-list-item a:hover {
   color: #fff; }
+
+.home .category-featured:before, .blog .category-featured:before {
+  color: darker(#bebebe, 0.8); }

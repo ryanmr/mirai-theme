@@ -683,37 +683,3 @@ input[type="checkbox"]:focus {
   outline: thin dotted #333333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
-
-/*
-========================================
-	============ Responsive ============
-========================================
-*/
-@media (max-width: 767px) {
-  #container, #menu-primary, #header, #content {
-    width: 640px;
-    transition: width 0.5s;
-    -moz-transition: width 0.5s;
-    -webkit-transition: width 0.5s;
-    -o-transition: width 0.5s; }
-
-  #comments-template {
-    display: none; } }
-@media (max-width: 480px) {
-  #container, #menu-primary, #header, #content {
-    width: 400px;
-    min-width: 400px;
-    transition: width 0.5s;
-    -moz-transition: width 0.5s;
-    -webkit-transition: width 0.5s;
-    -o-transition: width 0.5s; }
-
-  #comments-template {
-    display: none; } }
-@media (min-width: 840px) {
-  #container, #menu-primary, #header, #content {
-    width: 700px;
-    transition: width 0.5s;
-    -moz-transition: width 0.5s;
-    -webkit-transition: width 0.5s;
-    -o-transition: width 0.5s; } }

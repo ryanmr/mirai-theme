@@ -1,0 +1,19 @@
+/* --- Responsive --- */
+
+@media (max-width: 767px) {
+	#container, #menu-primary, #header, #content {
+		width: 95%;
+		@include transitions(width, .5);
+	}
+	#comments-template {
+		display: none;
+	}
+}
+
+
+@media (min-width: 840px)  {
+	#container, #menu-primary, #header, #content {
+		width: 700px;
+		@include transitions(width, .5);
+	}	
+}

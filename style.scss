@@ -6,8 +6,6 @@ Author URI: http://ryanrampersad.com/
 Version: .200
 */
 
-
-
 $links: #BC0707;
 $background: #FFF;
 $border: #E0CCCC;
@@ -744,43 +742,8 @@ input[type="checkbox"]:focus {
   outline-offset: -2px;
 }
 
-/*
-========================================
-	============ Responsive ============
-========================================
-*/
 
 
-
-
-@media (max-width: 767px) {
-	#container, #menu-primary, #header, #content {
-		width: 640px;
-		@include transitions(width, .5);
-	}
-	#comments-template {
-		display: none;
-	}
-}
-
-
-@media (max-width: 480px) {
-	#container, #menu-primary, #header, #content {
-		width: 400px;
-		min-width: 400px;
-		@include transitions(width, .5);
-	}
-	#comments-template {
-		display: none;
-	}
-}
-
-@media (min-width: 840px)  {
-	#container, #menu-primary, #header, #content {
-		width: 700px;
-		@include transitions(width, .5);
-	}	
-}
 
 
 

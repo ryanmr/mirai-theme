@@ -1,4 +1,6 @@
-/* --- Dark Theme --- */
+/*
+	Dark theme.
+*/
 
 $dark_background: #111011;
 $dark_body_text: #bebebe;
@@ -10,6 +12,8 @@ $dark_border: #666;
 	-webkit-transition: $trans #{$time}s;
 	-o-transition: $trans #{$time}s;
 }
+
+// ======= ======= ======= ======= =======
 
 body {
 	background-color: $dark_background;
