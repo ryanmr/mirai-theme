@@ -6,13 +6,28 @@ $dark_background: #111011;
 $dark_body_text: #bebebe;
 $dark_border: #666;
 
+@mixin transitions($trans, $time) {
+	transition: $trans #{$time}s;
+	-moz-transition: $trans #{$time}s;
+	-webkit-transition: $trans #{$time}s;
+	-o-transition: $trans #{$time}s;
+}
+
+// ======= ======= ======= ======= =======
+
 body {
 	background-color: $dark_background;
 	color: $dark_body_text;
 }
 
 a {
-	border-color: #444;
+	border-color: #333;
+}
+
+a:hover {
+	background-color: #000;
+	border-bottom: 1px solid #555;
+	@include transitions(background-color, .3);
 }
 
 .menu-container a {
@@ -21,10 +36,10 @@ a {
 
 blockquote {
 	border-color: $dark_border;
-	color: darken(#bebebe, 20%);
+	color: darken(#bebebe, 15%);
 	blockquote {
 		border-color: inherit;
-		color: darken(#bebebe, 30%);
+		color: darken(#bebebe, 25%);
 	}
 }
 
@@ -48,7 +63,7 @@ blockquote {
 
 // Permalink coloring
 .linked-list-item {
-		color: #aaa;
+		color: #666;
 }
 .format-link .linked-list-item {
 	a {
@@ -64,5 +79,12 @@ blockquote {
 	}
 	a:hover {
 		color: #fff;
+	}
+}
+
+// Decoration color
+.home, .blog {
+	.category-featured:before {
+		color: darker($dark_body_text, .8);
 	}
 }
