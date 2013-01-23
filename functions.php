@@ -72,10 +72,8 @@ function add_general_filters() {
 function mirai_add_styles() {
 	wp_register_style( 'normalize', get_template_directory_uri() . '/resources/css/normalize.css');
 	wp_register_style( 'main', get_template_directory_uri() . '/style.css');
-	wp_register_style( 'dark', get_template_directory_uri() . '/dark.css');
 	wp_enqueue_style( 'normalize' ); 
 	wp_enqueue_style( 'main' ); 
-	wp_enqueue_style( 'dark' ); 
 }
 
 function mirai_viewport() {

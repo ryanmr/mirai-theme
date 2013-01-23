@@ -3,10 +3,8 @@ Theme Name: Mirai
 Theme URI: http://blog.ryanrampersad.com/
 Author: Ryan Rampersad
 Author URI: http://ryanrampersad.com/
-Version: .200
+Version: .201
 */
-
-
 
 $links: #BC0707;
 $background: #FFF;
@@ -744,43 +742,11 @@ input[type="checkbox"]:focus {
   outline-offset: -2px;
 }
 
-/*
-========================================
-	============ Responsive ============
-========================================
-*/
+// --- includes/imports
 
+@import "resources/css/responsive.scss";
+@import "resources/css/dark.scss";
 
-
-
-@media (max-width: 767px) {
-	#container, #menu-primary, #header, #content {
-		width: 640px;
-		@include transitions(width, .5);
-	}
-	#comments-template {
-		display: none;
-	}
-}
-
-
-@media (max-width: 480px) {
-	#container, #menu-primary, #header, #content {
-		width: 400px;
-		min-width: 400px;
-		@include transitions(width, .5);
-	}
-	#comments-template {
-		display: none;
-	}
-}
-
-@media (min-width: 840px)  {
-	#container, #menu-primary, #header, #content {
-		width: 700px;
-		@include transitions(width, .5);
-	}	
-}
 
 
 

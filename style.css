@@ -3,7 +3,7 @@ Theme Name: Mirai
 Theme URI: http://blog.ryanrampersad.com/
 Author: Ryan Rampersad
 Author URI: http://ryanrampersad.com/
-Version: .200
+Version: .201
 */
 body {
   font: 14px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -684,25 +684,10 @@ input[type="checkbox"]:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
-/*
-========================================
-	============ Responsive ============
-========================================
-*/
+/* --- Responsive --- */
 @media (max-width: 767px) {
   #container, #menu-primary, #header, #content {
-    width: 640px;
-    transition: width 0.5s;
-    -moz-transition: width 0.5s;
-    -webkit-transition: width 0.5s;
-    -o-transition: width 0.5s; }
-
-  #comments-template {
-    display: none; } }
-@media (max-width: 480px) {
-  #container, #menu-primary, #header, #content {
-    width: 400px;
-    min-width: 400px;
+    width: 95%;
     transition: width 0.5s;
     -moz-transition: width 0.5s;
     -webkit-transition: width 0.5s;
@@ -717,3 +702,65 @@ input[type="checkbox"]:focus {
     -moz-transition: width 0.5s;
     -webkit-transition: width 0.5s;
     -o-transition: width 0.5s; } }
+/* --- Dark Theme --- */
+body {
+  background-color: #111011;
+  color: #bebebe; }
+
+a {
+  border-color: #333; }
+
+a:hover {
+  background-color: #000;
+  border-bottom: 1px solid #555555;
+  transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s; }
+
+.menu-container a {
+  border-color: #acacac; }
+
+blockquote {
+  border-color: #666666;
+  color: #989898; }
+  blockquote blockquote {
+    border-color: inherit;
+    color: #7e7e7e; }
+
+#site-header {
+  border-bottom: 1px solid black; }
+
+.dateline {
+  color: #888; }
+
+.category-featured {
+  border-color: #666; }
+
+.singular-post .entry-date {
+  color: #8b8b8b; }
+
+.format-standard .entry-title a {
+  color: #999; }
+
+.linked-list-item {
+  color: #666; }
+
+.format-link .linked-list-item a {
+  color: darker(#bebebe, 0.9); }
+.format-link .linked-list-item a:hover {
+  color: #fff; }
+
+.format-link:hover .linked-list-item a {
+  color: #f00; }
+.format-link:hover .linked-list-item a:hover {
+  color: #fff; }
+
+.home .category-featured:before, .blog .category-featured:before {
+  color: #3f3f3f; }
+
+#comments-template {
+  color: #a5a5a5; }
+
+.comment-list li {
+  border-color: #666666; }
