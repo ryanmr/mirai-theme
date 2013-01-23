@@ -1,10 +1,13 @@
 /* --- Responsive --- */
 
+// by using precents, the width scales to any small display
+// including #footer makes mobile stop having the hangover gap
 @media (max-width: 767px) {
-	#container, #menu-primary, #header, #content {
+	#container, #menu-primary, #header, #content, #footer {
 		width: 95%;
 		@include transitions(width, .5);
 	}
+
 	#comments-template {
 		display: none;
 	}
@@ -12,7 +15,7 @@
 
 
 @media (min-width: 840px)  {
-	#container, #menu-primary, #header, #content {
+	#container, #menu-primary, #header, #content, #footer {
 		width: 700px;
 		@include transitions(width, .5);
 	}	
